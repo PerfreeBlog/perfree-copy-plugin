@@ -1,16 +1,19 @@
 package com.copy;
 
-import cn.hutool.core.util.StrUtil;
-import com.perfree.commons.OptionCacheUtil;
+import com.perfree.cache.OptionCacheService;
 import com.perfree.plugin.proxy.HtmlRenderProxy;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.dromara.hutool.core.text.StrUtil;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Component
 public class CopyHandle extends HtmlRenderProxy {
+
+    @Resource
+    private OptionCacheService optionCacheService;
 
     @Override
     public Document editFrontDocument(Document document, HttpServletResponse response, HttpServletRequest request) {
@@ -23,7 +26,7 @@ public class CopyHandle extends HtmlRenderProxy {
                 "                    clipboardData.setData('text/plain', text + '\\r\\n{}')\n" +
                 "                }\n" +
                 "            })</script>";
-        String text = OptionCacheUtil.getDefaultValue("PERFREE_COPY_TEXT", "");
+        String text = optionCacheService.getDefaultValue("PERFREE_COPY_TEXT", "");
         js = StrUtil.format(js,text);
         document.body().append(js);
         return document;

@@ -1,0 +1,38 @@
+{
+  "option": {
+    "form": {
+      "inline": false,
+      "hideRequiredAsterisk": false,
+      "labelPosition": "right",
+      "size": "default",
+      "labelWidth": "125px"
+    },
+    "resetBtn": {
+      "show": false,
+      "innerText": "重置"
+    },
+    "submitBtn": {
+      "show": true,
+      "innerText": "提交"
+    }
+  },
+  "rule": [
+    {
+      "type": "input",
+      "field": "PERFREE_COPY_TEXT",
+      "title": "追加文字信息",
+      "info": "追加文字信息",
+      "$required": false,
+      "props": {
+        "type": "textarea",
+        "placeholder": "请输入追加文字信息",
+        "rows": 6
+      },
+      "_fc_id": "id_F715m1iy6w1qacc",
+      "name": "ref_Fzxfm1iy6w1qadc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "textarea"
+    }
+  ]
+}
