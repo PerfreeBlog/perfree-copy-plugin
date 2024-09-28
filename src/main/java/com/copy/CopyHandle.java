@@ -26,7 +26,7 @@ public class CopyHandle extends HtmlRenderProxy {
                 "                    clipboardData.setData('text/plain', text + '\\r\\n{}')\n" +
                 "                }\n" +
                 "            })</script>";
-        String text = optionCacheService.getDefaultValue("PERFREE_COPY_TEXT", "");
+        String text = optionCacheService.getDefaultValue("PERFREE_COPY_TEXT", "plugin_perfree-copy-plugin","");
         js = StrUtil.format(js,text);
         document.body().append(js);
         return document;
